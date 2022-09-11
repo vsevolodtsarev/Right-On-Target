@@ -12,21 +12,18 @@ class ViewController: UIViewController {
     @IBOutlet var slider: UISlider!
     @IBOutlet var label: UILabel!
     
-    var round = 0
+    var round = 1
     var points = 0
     var number = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("viewDidLoad")
+        number = Int.random(in: 1...50)
+        label.text = String(number)
     }
 
     @IBAction func checkNumber() {
-        if number == 0 {
-            number = Int.random(in: 1...50)
-            label.text = String(number)
-            round = 1
-        } else {
             let numSlider = Int(slider.value.rounded())
             if numSlider > number {
                 points += 50 - numSlider + number
@@ -52,5 +49,5 @@ class ViewController: UIViewController {
             label.text = String(number)
         }
     }
-}
+
 
